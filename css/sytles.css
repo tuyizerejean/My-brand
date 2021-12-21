@@ -56,6 +56,7 @@ img {
   height: 70px;
   font-weight: 400;
   border-bottom: 1px solid #d6d9dc;
+  position: fixed;
 }
 .navbar .bugger {
   display: none;
@@ -175,9 +176,9 @@ img {
 }
 /* CONTACT ME */
 .contact-me {
-  background-color: var(--primary);
+  background-color: var(--color-black);
   height: auto;
-  color: var(--color-black);
+  color: var(--primary);
 }
 .contact-me .form-control {
   margin: 20px 0px;
@@ -190,7 +191,7 @@ img {
   display: inline-block;
   border-radius: 5px;
   font-size: 16px;
-  border: 1px solid var(--color-black);
+  border: 1px solid var(--primary);
 }
 .form-control textarea {
   height: 150px;
