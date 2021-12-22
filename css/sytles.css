@@ -56,8 +56,10 @@ img {
   height: 70px;
   font-weight: 400;
   border-bottom: 1px solid #d6d9dc;
-  position: fixed;
+  position: sticky;
+  top: 0;
 }
+
 .navbar .bugger {
   display: none;
   cursor: pointer;
@@ -83,7 +85,6 @@ img {
   height: auto;
   background-color: var(--primary);
   color: var(--color-black);
-  position: relative;
 }
 .showcase h1 {
   font-size: 40px;
@@ -418,4 +419,12 @@ footer {
     box-shadow: 0px 0px 3px var(--color-grey);
     transition: transform 0.2s ease-in;
   }
+}
+.articleImage {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.comment {
+  border: 5px solid #9ea4aa;
 }
