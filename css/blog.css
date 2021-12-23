@@ -25,3 +25,7 @@
 .blog-info .user-info {
   width: 80%;
 }
+.readmore {
+  text-align: right;
+  color: black;
+}

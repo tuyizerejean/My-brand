@@ -291,8 +291,8 @@ footer {
 @media screen and (max-width: 500px) {
   /* NAVBAR */
   .navbar {
-    background-color: var(--primary);
-    color: var(--color-black);
+    background-color: var(--color-black);
+    color: var(--primary);
     height: auto;
     font-weight: 400;
     border-bottom: none;
@@ -389,9 +389,9 @@ footer {
   /* FOOTER */
   footer {
     border-top: 2px solid var(--color-black);
-    background-color: var(--primary);
+    background-color: var(--color-black);
     height: auto;
-    color: var(--color-black);
+    color: var(--primary);
     padding: 40px 0;
   }
   .social {
@@ -427,4 +427,9 @@ footer {
 }
 .comment {
   border: 5px solid #9ea4aa;
+}
+.detailsImage {
+  height: 500px;
+  width: 100%;
+  padding-top: 12px;
 }
