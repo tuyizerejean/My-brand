@@ -127,6 +127,13 @@ hr {
 .modal-content .about-update:focus {
   outline: none;
 }
+/*Text Area*/
+.textarea {
+  height: 200px;
+  margin: 20px 0;
+  width: 50%;
+}
+
 /* IPAD RESPONSIVE */
 @media screen and (max-width: 768px) {
   .main-content .content-wraper {

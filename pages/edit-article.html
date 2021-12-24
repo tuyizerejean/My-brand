@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit article</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/sytles.css" />
+    <link rel="stylesheet" href="../css/create-article.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="container flex">
+        <h1 class="logo">TJ</h1>
+        <i class="fas fa-bars fa-2x bugger"></i>
+        <nav class="navigation hide">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="Admin_viewArticle.html">View Blogs</a></li>
+            <li><a href="create-article.html">Create New blog</a></li>
+            <li><a href="signin.html" class="sign-out">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="create-article">
+      <div class="container form-holder">
+        <form class="update-form" method="">
+          <input
+            type="text"
+            placeholder="Article title"
+            class="title"
+            value="Enjoy the Kigali city"
+            name="title"
+          /><br />
+          <span>Change the image </span
+          ><input type="file" name="image" class="img" /><br />
+          Type content of your article <br />
+          <textarea name="content" class="content">
+            Black men drifted from Democrats toward Trump in record numbers,
+            polls show Support for the Democratic presidential candidate
+            reached a new low among Black men this year, according to the NBC
+            Black men drifted from Democrats toward Trump in record numbers,
+            polls show Support for the Democratic presidential candidate
+            </textarea
+          ><br />
+          <button class="btn">Update</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

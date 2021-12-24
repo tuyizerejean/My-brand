@@ -5,26 +5,30 @@
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  padding-left: 12%;
   gap: 0;
 }
 .signin-form,
 .buttons-part {
   height: 400px;
   color: var(--color-white);
-  border: 3px solid black;
 }
 .signin-form {
-  background-color: var(--primary);
+  background-color: #eaecee;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  border: 5px solid black;
+  border-radius: 5px;
 }
 .signin-form form input {
   margin: 20px 0;
-  height: 20px;
+  height: 50px;
   width: 400px;
+  border-radius: 5px;
 }
 .signin-form form input:focus {
   outline: none;
@@ -36,6 +40,7 @@
   align-items: center;
   justify-content: space-around;
 }
+
 /* IPAD VIEW */
 @media screen and (max-width: 768px) {
   .holder {
@@ -48,7 +53,6 @@
     gap: 0px;
     margin: 40px 0px;
   }
-
   .signin-form,
   .buttons-part {
     height: 400px;
@@ -59,7 +63,6 @@
     padding: 40px 0;
   }
 }
-
 /* MOBILE VIEW */
 @media screen and (max-width: 500px) {
   .signin-form form input {

@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="../css/sytles.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/article.css">
+    
+  
 </head>
 <body>
     <!-- Navbar -->
@@ -17,9 +20,9 @@
             <i class="fa fa-bars fa-2x bugger"></i>
             <nav class="navigation hide">
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="#">View Blogs</a></li>
-                    <li><a href="#">Create New blog</a></li>
+                    <li><a href="dashboard.html">Profile</a></li>
+                    <li><a href="Admin_viewArticle.html">View Blogs</a></li>
+                    <li><a href="create-article.html">Create New blog</a></li>
                     <li><a href="signin.html" class="sign-out">Logout</a></li>
                 </ul>
             </nav>
@@ -30,6 +33,7 @@
         <div class="container content-wraper">
             <div class="profiling">
                 <img src="../images/profiles/profile.JPG" alt="">
+               
                 <h3>TUYIZERE Jean de Dieu</h3>
                 <p>
                     Aspiring Software Developer Interested in 
@@ -40,7 +44,7 @@
                 <p><i class="fab fa-twitter"></i> &nbsp; @tuyizere jean de dieu</p>
                 <p><i class="fas fa-envelope fa-1x"></i> &nbsp;tuyibobu@gmail.com</p>
                 <p><i class="fas fa-map-marker-alt fa-1x"></i> &nbsp;KIGALI, RWANDA</p>
-                    <button href=""class="btn function">View the  Qeuries</button>
+                <a href="queries.html" ><button class="btn function">View the  Qeuries</button></a>
                         <div class="article-counter">
                 </div>
             </div>
@@ -48,14 +52,31 @@
                 <div>
                     <h3>About me</h3>
                     <div class="wraper">
+                        <form method="" class="comment-form">
+                            <textarea>   I am a student in university of Rwanda Honor of science in
+                                infomartion systems currently si am sering as system analyst and
+                                such things related with Business .In my career development i am
+                                focused on online job,social media and education. so as to become a
+                                good Developer in upcoming days. I believe that mindfulness in the
+                                workspace is a key to succcess but also i believe that behind of</textarea><br />
+                          </form>
+                          </div>
+                        <button href="" class="btn function" id="edit-about-me">Edit</button>
                     </div>
-                    <button href="" class="btn function" id="edit-about-me">Edit</button>
-                </div>
+                    
+                          </form>
+                
                 <hr>
                 <div>
                     <h3>Portfolio</h3>
-                    <h4>Project</h4><button href=""></button>
                     <div class="project-wraper">
+                        <form action="" class="project-form">
+                            <input type="file" name="projectImage"><br>
+                            Describe the project:
+                            <textarea name="description" >
+                            </textarea>
+                            
+                        </form>
                     </div>
                     <button href="" class="btn function" id="add-project">Add</button>
                 </div>
@@ -84,34 +105,10 @@
                             <button href="" class="btn"> Delete</buttom>
                         </div>
                     </div>
-                    <button href="" class="btn function">Delete All</buttom>
                 </div>
+                <button href="" class="btn function">Add skills</buttom> 
+                <button href="" class="btn function">Delete All</buttom>
             </div>
-        </div>
-    </div>
-    <div class="edit-about-modal">
-        <div class="container modal-content">
-            <div class="close">+</div>
-            <h3>About me</h3>
-            <form action="" class="aboutMe">
-                <textarea name="aboutmecontent" class="about-update">
-                </textarea>
-                <button href="" class="btn" type="submit">Save</button>
-            </form>
-        </div>
-    </div>
-    <div class="add-project-modal">
-        <div class="container modal-content">
-            <div class="project-close">+</div>
-            <h3>Add new project</h3>
-            
-            <form action="" class="project-form">
-                <input type="file" name="projectImage"><br>
-                Describe the project:
-                <textarea name="description" class="about-update">
-                </textarea>
-                <button href="" class="btn" type="submit">Add</button>
-            </form>
         </div>
     </div>
     <footer >

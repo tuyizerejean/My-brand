@@ -26,6 +26,9 @@
   width: 80%;
 }
 .readmore {
-  text-align: right;
   color: black;
+  display: inline;
+}
+.locate {
+  text-align: right;
 }
