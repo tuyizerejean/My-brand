@@ -18,16 +18,20 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  margin-top: 10%;
-  margin-left: 30%;
-  margin-right: 30%;
-  border: 5px solid black;
+  width: 50%;
+  margin:10% auto;
+  border: 1px solid black;
+
   border-radius: 5px;
 }
-.signin-form form input {
-  margin: 20px 0;
-  height: 50px;
-  width: 400px;
+.sign-in-form{
+  width:80%;
+  margin:0 auto;
+}
+.signin-form form input, #login-button {
+  margin: 10px 0px;
+  height: 40px;
+  width: 100%;
   border-radius: 5px;
 }
 .signin-form form input:focus {
@@ -62,7 +66,18 @@
   .signin-form {
     padding: 40px 0;
   }
-}
+  .signin-form {
+    background-color: #eaecee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin:100px auto;
+    border: 1px solid black;
+    width: 90%;
+    border-radius: 5px;
+  }
+ 
 /* MOBILE VIEW */
 @media screen and (max-width: 500px) {
   .signin-form form input {
