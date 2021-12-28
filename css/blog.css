@@ -25,3 +25,10 @@
 .blog-info .user-info {
   width: 80%;
 }
+.readmore {
+  color: black;
+  display: inline;
+}
+.locate {
+  text-align: right;
+}

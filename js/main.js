@@ -1,5 +1,6 @@
-const bugger = document.querySelector('.bugger')
-const navigation = document.querySelector('.navigation')
-bugger.addEventListener('click', function () {
-    navigation.classList.toggle('hide');
-})
+const bugger = document.querySelector(".bugger");
+const navigation = document.querySelector(".navigation");
+bugger.addEventListener("click", function () {
+    console.log("clicke");
+  navigation.classList.toggle("hide");
+});

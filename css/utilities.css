@@ -5,7 +5,6 @@
   overflow: auto;
   padding: 0 40px;
 }
-
 .text-center {
   text-align: center;
 }
@@ -23,8 +22,8 @@
   transform: scale(0.98);
 }
 .btn-outline {
-  background-color: transparent;
-  border: 1.5px solid #fff;
+  background-color: black;
+  width: 400px;
 }
 .flex {
   display: flex;
