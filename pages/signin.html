@@ -29,22 +29,23 @@
       </div>
     </div>
     <!-- Sign in -->
-        <div class="signin-form">
-          <i class="fas fa-user fa-4x"></i>Admin Login
-          <form class="sign-in-form">
-            Email:<br>
-            <input type="email" placeholder="Email or username" name="email" />
+        <div class="signin-form">   
+          <span id="changeEmail"> Admin Login</span>
+          <form class="sign-in-form" id="signInForm">
+            Email:
+            <br>
+            <input type="text" id="email" placeholder="Email" name="email" />
             <br>
             Password:<br>
-            <input type="password" placeholder="Password" name="password" />
-            <span class="error"></span> <br />
-             <a href="dashboard.html"> <button class="btn btn-outline" id="login-button"> Sign in
-            </a></button>
-
+            <input type="password" id="password" placeholder="Password" name="password" />
+            <span class="passwordError"></span> <br />
+              <button class="btn btn-outline" type="submit" name="submit" id="login-button"> Sign in</button>
             <br /><br />
           </form>
         </div>
       </div>
     </div>
+    <script src="/js/main.js"></script>
+    <script src="/js/signin.js"></script>
   </body>
 </html>

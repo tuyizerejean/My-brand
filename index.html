@@ -148,27 +148,33 @@
               Street: RK 15 Ave
             </p>
           </div>
-          <form class="grid-1">
+
+          <form class="grid-1" id="queryForm">
             <div class="form-control">
-              <input type="text" placeholder="Names: Jean de" />
+              <input type="text"  name="names" placeholder="Names: Jean de" />
+              <span id="nameError" style="display: none; color:orange;">Name should not be empty</span>
             </div>
             <div class="form-control">
-              <input
+              <input name="subject"
                 type="text"
                 placeholder=" Add Subject: "
               />
+              <span id="subjectError" style="display: none; color:orange;">Name should not be empty</span>
             </div>
             <div class="form-control">
-              <input type="text" placeholder="Email: example@gmail.com" />
+              <input type="text" name="email" placeholder="Email: example@gmail.com" />
+              <span id="emailError" style="display: none; color:orange;">Email should be a valid email and not empty</span>
             </div>
             <div class="form-control">
               <label for="detail">Detail of your message:</label><br />
-              <textarea id="detail"> </textarea>
+              <textarea name="details" id="detail"> </textarea>
+              <span id="detailError" style="display: none;color:orange;">Please detail your message</span>
             </div>
             <div class="form-control">
-              <a href="#" class="btn">Send message</a>
+              <button  type="submit" class="btn" name="submit">Send message</button>
             </div>
           </form>
+
         </div>
       </div>
     </div>
@@ -186,6 +192,8 @@
         </div>
       </div>
     </footer>
-    <scrip src="js/main.js"></scrip>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/queries.js"></script>
   </body>
 </html>
