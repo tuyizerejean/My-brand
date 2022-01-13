@@ -33,19 +33,33 @@
     </div>
     <div class="create-article">
       <div class="container form-holder">
-        <form class="create-form">
+        <form class="create-form" id="createBlog">
           <input
             type="text"
+            id="title"
             placeholder="Add Article title"
             name="title"
-          /><br />
-          <span>Choose the image </span><input type="file" name="image" /><br />
+          />
+          <span id="titleError" style="display: none; color: orange"
+            >Title can not be Empty</span
+          >
+          <br />
+
+          <span>Choose the image </span
+          ><input type="file" id="myFileInput" /><br />
+          <span id="articleError" style="display: none; color: orange"
+            >Image should not be</span
+          >
           Type content of your article <br />
-          <textarea name="content"> </textarea><br />
+          <textarea id="article" name="content"> </textarea><br />
+          <span id="articleError" style="display: none; color: orange"
+            >Article should not be Empty</span
+          >
           <button class="btn" type="submit" name="submit">Post</button>
         </form>
       </div>
     </div>
     <script src="/js/main.js"></script>
+    <script src="/js/create-article.js"></script>
   </body>
 </html>

@@ -8,7 +8,6 @@ function sendQeuries() {
     const subject = event.target.elements.subject.value;
     const email = event.target.elements.email.value;
     const details = event.target.elements.details.value;
-
     if (names === "") {
       document.querySelector("#nameError").style.display = "block";
       return;
