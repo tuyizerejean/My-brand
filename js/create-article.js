@@ -5,9 +5,7 @@ document.querySelector("#myFileInput").addEventListener("change", function () {
     image = reader.result;
   });
   reader.readAsDataURL(this.files[0]);
-});
-
-localStorage.setItem("Blog", JSON.stringify([])); //initialising the local storage
+}); //initialising the local storage
 function createArticle() {
   const createBlog = document.querySelector("#createBlog");
   createBlog.addEventListener("submit", function (event) {
@@ -27,15 +25,19 @@ function createArticle() {
     } else {
       document.querySelector("#articleError").style.display = "none";
     }
-
     const createArticle = {
+      id: uuidv4(),
       title,
       image: image,
       article,
+      timestamp: Date.now(),
     };
-    let bloglist = localStorage.getItem("Blog");
-    bloglist = JSON.parse(bloglist);
+    let bloglist =
+      JSON.parse(localStorage.getItem("Blog")) === null
+        ? []
+        : JSON.parse(localStorage.getItem("Blog"));
     bloglist.push(createArticle);
+    console.log(bloglist);
     localStorage.setItem("Blog", JSON.stringify(bloglist));
     event.target.elements.title.value = "";
     event.target.elements.article.value = "";
