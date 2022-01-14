@@ -43,6 +43,16 @@ function sendQeuries() {
     queryList = JSON.parse(queryList);
     queryList.push(query);
     localStorage.setItem("queries", JSON.stringify(queryList));
+
+    // const test = document.querySelector("#nameError");
+    // test.setAttribute("queries", queryList);
+    // test.textContent = queryList;
+    // test.append(test);
+    // console.log(test);
+    event.target.elements.names.value = "";
+    event.target.elements.subject.value = "";
+    event.target.elements.email.value = "";
+    event.target.elements.details.value = "";
   });
 }
 const validateEmail = (email) => {

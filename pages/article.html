@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../css/utilities.css" />
     <link rel="stylesheet" href="../css/sytles.css" />
     <link rel="stylesheet" href="../css/article.css" />
-
   </head>
   <body>
     <!-- Navbar -->
@@ -31,54 +30,23 @@
       </div>
     </div>
     <!-- Article -->
+    <section id="ViewArticle">
     <div class="article">
       <div class="container article-grid">
-        
-        <div class="author">
-           
-            <h4>
-              <img class="detailsImage"src="../images/profiles/kigali.JPG"
-              align="center"
-            />
-             <h1>Kigali City<p>23,December,2021</p> </h1><br>
-            Black men drifted from Democrats toward Trump in record numbers,
-            polls show Support for the Democratic presidential candidate
-            reached a new low among Black men this year, according to the NBC
-            v  Black men drifted from Democrats toward Trump in record numbers,
-            polls show Support for the Democratic presidential candidate
-            reached a new low among Black men this year, according to the 
-            <p>NBC   Black men drifted from Democrats toward Trump in record numbers,
-            polls show Support for the Democratic presidential candidate
-            reached a new low among Black men this year, according to the NBC  Black men drifted from Democrats toward Trump in record numbers,
-            polls show Support for the Democratic presidential candidate
-            reached a new low among Black men this year, according to the NBC</p>   Black men drifted from Democrats toward Trump in record numbers,
-            polls show Support for the Democratic presidential candidate
-            reached a new low among Black men this year, according to the NBC  Black men drifted from Democrats toward Trump in record numbers,
-            polls show Support for the Democratic presidential candidate
-            reached a new low among Black men this year, according to the NBC
-            <p>NBC   Black men drifted from Democrats toward Trump in record numbers,
-              polls show Support for the Democratic presidential candidate
-              reached a new low among Black men this year, according to the NBC  Black men drifted from Democrats toward Trump in record numbers,
-              polls show Support for the Democratic presidential candidate
-              reached a new low among Black men this year, according to the NBC</p> 
-              <p>NBC   Black men drifted from Democrats toward Trump in record numbers,
-                polls show Support for the Democratic presidential candidate
-                reached a new low among Black men this year, according to the NBC  Black men drifted from Democrats toward Trump in record numbers,
-                polls show Support for the Democratic presidential candidate
-                reached a new low among Black men this year, according to the NBC</p> 
-                <p>NBC   Black men drifted from Democrats toward Trump in record numbers,
-                  polls show Support for the Democratic presidential candidate
-                  reached a new low among Black men this year, according to the NBC  Black men drifted from Democrats toward Trump in record numbers,
-                  polls show Support for the Democratic presidential candidate
-                  reached a new low among Black men this year, according to the NBC</p> 
+        <div class="author"> 
         </div>
+        </div>
+        </div>
+        </section>
         <div class="add-comment">
           <h4>Add comment</h4>
           <form class="comment-form"id="commentForm">
             <input type="text" id="addComment" placeholder="Your name" name="name" /><br />
+            <span id="addcommentError" style="display: none;color:orange;">Please fill you name</span>
             your comment: <br />
             <textarea id="comment"name="comment"> </textarea><br />
-            <button  type="input" direction class="btn">Comment</button>
+            <span id="commentError" style="display: none;color:orange;">Please fill the comment</span>
+            <button  type="submit"  direction class="btn">Comment</button>
           </form>
         </div>
         <div>
@@ -135,6 +103,9 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/read-article.js"></script>
   </body>
 </html>
