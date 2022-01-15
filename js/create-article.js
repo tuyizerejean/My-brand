@@ -37,7 +37,6 @@ function createArticle() {
         ? []
         : JSON.parse(localStorage.getItem("Blog"));
     bloglist.push(createArticle);
-    console.log(bloglist);
     localStorage.setItem("Blog", JSON.stringify(bloglist));
     event.target.elements.title.value = "";
     event.target.elements.article.value = "";
