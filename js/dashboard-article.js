@@ -12,7 +12,7 @@ function renderArticle() {
     someContent.textContent = "Delete";
     const link = document.createElement("author");
     link.setAttribute("class", "link");
-    link.setAttribute("href", `article.html#${article.id}`);
+    link.setAttribute("href", ``);
     const info = document.createElement("div");
     info.setAttribute("class", "Blog-info");
     const img = document.createElement("img");
@@ -32,6 +32,8 @@ function renderArticle() {
     deleteButton.textContent = "Delete";
     const update = document.createElement("button");
     update.setAttribute("class", " btn");
+    update.setAttribute("value", article.id);
+    update.setAttribute("id", "update");
     update.textContent = "Update";
     par.textContent = article.article;
     info.appendChild(img);
@@ -63,7 +65,15 @@ function renderArticle() {
         location.reload();
       }
     });
+    //Updating the article
+    update.addEventListener("click", function (event) {
+      const id = event.target.value;
+      // const articles = JSON.parse(localStorage.getItem("Blog"));
+      // const ArticleFilter = articles.filter((article) => {
+      //   return article.id == id;
+      // });
+      location.assign(`create-article.html#${article.id}`);
+    });
   });
 }
-
 renderArticle();

@@ -1,4 +1,4 @@
-localStorage.setItem("queries", JSON.stringify([])); //initialising the local storage
+// localStorage.setItem("queries", JSON.stringify([])); //initialising the local storage
 function sendQeuries() {
   const queryForm = document.querySelector("#queryForm");
   queryForm.addEventListener("submit", function (event) {
@@ -32,6 +32,7 @@ function sendQeuries() {
     } else {
       document.querySelector("#detailError").style.display = "none";
     }
+
     const query = {
       id: uuidv4(),
       names,
@@ -39,16 +40,13 @@ function sendQeuries() {
       email,
       details,
     };
-    let queryList = localStorage.getItem("queries");
-    queryList = JSON.parse(queryList);
+    let queryList =
+      JSON.parse(localStorage.getItem("queries")) === null
+        ? []
+        : JSON.parse(localStorage.getItem("queries"));
     queryList.push(query);
     localStorage.setItem("queries", JSON.stringify(queryList));
-
-    // const test = document.querySelector("#nameError");
-    // test.setAttribute("queries", queryList);
-    // test.textContent = queryList;
-    // test.append(test);
-    // console.log(test);
+    window.alert("Successfully Added");
     event.target.elements.names.value = "";
     event.target.elements.subject.value = "";
     event.target.elements.email.value = "";
