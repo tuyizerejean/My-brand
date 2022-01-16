@@ -12,7 +12,6 @@ data.forEach((article) => {
   blogCard.setAttribute("class", "container article-grid");
   const link = document.createElement("author");
   link.setAttribute("class", "link");
-  link.setAttribute("href", `article.html#${article.id}`);
   const info = document.createElement("div");
   info.setAttribute("class", "Blog-info");
   const img = document.createElement("img");
@@ -26,7 +25,6 @@ data.forEach((article) => {
   content.setAttribute("class", "some-content");
   const par = document.createElement("p");
   const readymore = document.createElement("p");
-  readymore.setAttribute("href", `article.html#${article.id}`);
   readymore.setAttribute("class", "read");
   par.textContent = article.article;
   par.appendChild(readymore);
@@ -40,7 +38,6 @@ data.forEach((article) => {
   articleCard.appendChild(blogCard);
   blog.appendChild(articleCard);
 });
-
 const commentForm = document.querySelector("#commentForm");
 commentForm.addEventListener("submit", function (event) {
   event.preventDefault();
