@@ -8,6 +8,7 @@ document.querySelector("#myFileInput").addEventListener("change", function () {
 }); //initialising the local storage
 
 function writeData(operation, id = null) {
+
   const createBlog = document.querySelector("#createBlog");
   createBlog.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -79,3 +80,4 @@ if (id.length === 0) {
   formButton.innerHTML = "Update";
   writeData("update", id);
 }
+

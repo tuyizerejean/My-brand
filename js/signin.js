@@ -23,7 +23,6 @@ function signInRequest() {
     } else {
       document.querySelector("#passwordError").style.display = "none";
     }
-
     let user = localStorage.getItem("signIn");
     user = JSON.parse(user);
 

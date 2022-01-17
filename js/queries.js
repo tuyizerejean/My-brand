@@ -51,6 +51,7 @@ function sendQeuries() {
     event.target.elements.subject.value = "";
     event.target.elements.email.value = "";
     event.target.elements.details.value = "";
+=
   });
 }
 const validateEmail = (email) => {
