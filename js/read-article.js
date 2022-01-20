@@ -65,11 +65,12 @@ commentForm.addEventListener("submit", function (event) {
     articleId: id,
   };
   let commentList =
-    localStorage.getItem("Comments") === null
+    JSON.parse(localStorage.getItem("Comments")) === null
       ? []
-      : localStorage.getItem("Comments");
-  commentList = JSON.parse(commentList);
+      : JSON.parse(localStorage.getItem("Comments"));
+
   commentList.push(commented);
+
   localStorage.setItem("Comments", JSON.stringify(commentList));
   event.target.elements.addComment.value = "";
   event.target.elements.comment.value = "";
