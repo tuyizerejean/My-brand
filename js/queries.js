@@ -6,9 +6,20 @@ function sendQeuries() {
     //getting the user location
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        console.log(position);
-      });
+      navigator.geolocation.getCurrentPosition(console.log, console.log);
+      const SuccessfullLookup = (position) => {
+        const { latitude, longitude } = position.coords;
+        fetch(
+          `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f771ed1eb4474843aa7ddf98d865dc08`
+        )
+          .then((response) => response.json())
+          .then(console.log);
+      };
+      const location = navigator.geolocation.getCurrentPosition(
+        SuccessfullLookup,
+        console.log
+      );
+      console.log(location.result[0]);
     }
 
     //getting all input values
