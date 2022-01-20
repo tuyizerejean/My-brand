@@ -40,5 +40,9 @@ bloglist.forEach((article) => {
   articleCard.appendChild(blogCard);
   blog.appendChild(articleCard);
 });
+
+// }
+// renderArticle();
+
 // }
 // renderArticle();

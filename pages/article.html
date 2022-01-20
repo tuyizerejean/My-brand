@@ -31,66 +31,46 @@
     </div>
     <!-- Article -->
     <section id="ViewArticle">
+      <div class="article">
+        <div class="container article-grid">
+          <div class="author"></div>
+        </div>
+      </div>
+    </section>
     <div class="article">
       <div class="container article-grid">
-        <div class="author"> 
-        </div>
-        </div>
-        </div>
-        </section>
         <div class="add-comment">
           <h4>Add comment</h4>
-          <form class="comment-form"id="commentForm">
-            <input type="text" id="addComment" placeholder="Your name" name="name" /><br />
-            <span id="addcommentError" style="display: none;color:orange;">Please fill you name</span>
+          <form class="comment-form" id="commentForm">
+            <input
+              type="text"
+              id="addComment"
+              placeholder="Type the name"
+              name="name"
+            /><br />
+            <span id="addcommentError" style="display: none; color: orange"
+              >Please fill you name</span
+            >
             your comment: <br />
-            <textarea id="comment"name="comment"> </textarea><br />
-            <span id="commentError" style="display: none;color:orange;">Please fill the comment</span>
-            <button  type="submit"  direction class="btn">Comment</button>
+            <textarea id="comment" name="comment"> </textarea><br />
+            <span id="commentError" style="display: none; color: orange"
+              >Please fill the comment</span
+            >
+            <button type="submit" direction class="btn">Comment</button>
           </form>
         </div>
+
         <div>
-          <br>
-          <hr>
           <p>Comments:</p>
-                <div class="comment">
-                  <img
-                    class="articleImage"
-                    src="../images/profiles/profile.JPG"
-                    align="left"
-                  />
-                  <h4>ATLP Trainee</h4>
-                  <i>3 days ago</i>
-                <br><br>
-                <div class="some-content">
-                  <p>
-                    Black men drifted from Democrats toward Trump in record numbers,
-                    polls show Support for the Democratic presidential candidate
-                  </p>
-                </div>
-              </div>
-                <br>
-              <div class="comment">
-                <img
-                  class="articleImage"
-                  src="../images/profiles/profile.JPG"
-                  align="left"
-                />
-                <h4>ATLP Trainee</h4>
-                <i>1 min ago</i>
-              <br><br>
-              <div class="some-content">
-                <p>
-                  
-                  polls show Support for the Democratic presidential candidat
-                     Black men drifted from Democrats toward Trump in record numbers,
-                </p>
-              </div>
-              <br> <br>
+          <section id="commentView">
+            <div class="comment">
+              <div class="some-content"></div>
             </div>
-              <br>
-              </div>
+          </section>
+        </div>
+      </div>
     </div>
+
     <footer>
       <div class="container grid-1">
         <h3 class="text-center">Created and Developed by jean de dieu</h3>
@@ -103,7 +83,11 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/read-article.js"></script>

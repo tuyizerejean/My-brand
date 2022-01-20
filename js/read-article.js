@@ -37,6 +37,7 @@ data.forEach((article) => {
   blogCard.appendChild(content);
   articleCard.appendChild(blogCard);
   blog.appendChild(articleCard);
+  console.log(article.id);
 });
 const commentForm = document.querySelector("#commentForm");
 commentForm.addEventListener("submit", function (event) {
@@ -45,14 +46,23 @@ commentForm.addEventListener("submit", function (event) {
   const addComment = event.target.elements.addComment.value;
   const comment = event.target.elements.comment.value;
   if (addComment === "") {
+    document.querySelector("#addcommentError").style.display = "block";
+    return;
+  } else {
+    document.querySelector("#addcommentError").style.display = "none";
+  }
+  if (comment === "") {
     document.querySelector("#commentError").style.display = "block";
     return;
   } else {
     document.querySelector("#commentError").style.display = "none";
   }
   const commented = {
+    commentId: uuidv4(),
     addComment,
     comment,
+    timestamp: Date.now(),
+    articleId: id,
   };
   let commentList =
     localStorage.getItem("Comments") === null
@@ -63,5 +73,30 @@ commentForm.addEventListener("submit", function (event) {
   localStorage.setItem("Comments", JSON.stringify(commentList));
   event.target.elements.addComment.value = "";
   event.target.elements.comment.value = "";
-  console.log(commentList);
+  location.reload();
+  window.alert("successfull Submitted");
+});
+// function renderArticle() {
+let commentList =
+  localStorage.getItem("Comments") === null
+    ? []
+    : JSON.parse(localStorage.getItem("Comments"));
+const dataRender = commentList.filter((item) => {
+  return item.articleId === id;
+});
+dataRender.forEach((commented) => {
+  const commentCard = document.querySelector("#commentView");
+  const commentHolder = document.createElement("div");
+  commentHolder.setAttribute("class", "comment");
+  const addCommentName = document.createElement("div");
+  addCommentName.setAttribute("class", "some-content");
+  addCommentName.textContent = commented.addComment;
+  const commentField = document.createElement("p");
+  commentField.textContent = commented.comment;
+  const date = document.createElement("i");
+  date.textContent = moment(commented.timestamp).fromNow();
+  commentCard.appendChild(commentHolder);
+  commentHolder.appendChild(addCommentName);
+  commentHolder.appendChild(date);
+  addCommentName.appendChild(commentField);
 });

@@ -3,6 +3,14 @@ function sendQeuries() {
   const queryForm = document.querySelector("#queryForm");
   queryForm.addEventListener("submit", function (event) {
     event.preventDefault();
+    //getting the user location
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        console.log(position);
+      });
+    }
+
     //getting all input values
     const names = event.target.elements.names.value;
     const subject = event.target.elements.subject.value;

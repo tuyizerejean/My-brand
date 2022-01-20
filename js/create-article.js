@@ -6,7 +6,6 @@ document.querySelector("#myFileInput").addEventListener("change", function () {
   });
   reader.readAsDataURL(this.files[0]);
 }); //initialising the local storage
-
 function writeData(operation, id = null) {
   const createBlog = document.querySelector("#createBlog");
   createBlog.addEventListener("submit", function (event) {
@@ -39,10 +38,10 @@ function writeData(operation, id = null) {
           JSON.parse(localStorage.getItem("Blog")) === null
             ? []
             : JSON.parse(localStorage.getItem("Blog"));
-
         bloglist.push(createArticle);
         localStorage.setItem("Blog", JSON.stringify(bloglist));
         window.alert("The article is Created successfully");
+        location.assign(`/pages/Admin_viewArticle.html`);
         event.target.elements.title.value = "";
         event.target.elements.article.value = "";
         break;
@@ -52,6 +51,7 @@ function writeData(operation, id = null) {
           if (article.id === id) {
             article.title = event.target.elements.title.value;
             article.article = event.target.elements.article.value;
+            // article.image = event.target.elements.image.value;
           }
         });
         localStorage.setItem("Blog", JSON.stringify(articleList));
@@ -63,7 +63,6 @@ function writeData(operation, id = null) {
     }
   });
 }
-
 const id = location.hash.split("").slice(1, location.hash.length).join("");
 const formButton = document.querySelector(".multbutton");
 if (id.length === 0) {
