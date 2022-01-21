@@ -1,26 +1,27 @@
 // localStorage.setItem("queries", JSON.stringify([])); //initialising the local storage
+if (navigator.geolocation) {
+  const SuccessfullLookup = (position) => {
+    const { latitude, longitude } = position.coords;
+    console.log(latitude);
+    console.log(longitude);
+    let apiLocation = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f771ed1eb4474843aa7ddf98d865dc08`;
+    console.log(apiLocation);
+    fetch(apiLocation)
+      .then((response) => response.json())
+      .then((data) => {
+        let resultsList = data.results;
+        // console.log("Exactly location is:", resultsList[0].formatted);
+        exaclyLocation = resultsList[0].formatted;
+        // console.log(exaclyLocation);
+      });
+  };
+  navigator.geolocation.getCurrentPosition(SuccessfullLookup);
+}
 function sendQeuries() {
   const queryForm = document.querySelector("#queryForm");
   queryForm.addEventListener("submit", function (event) {
     event.preventDefault();
     //getting the user location
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(console.log, console.log);
-      const SuccessfullLookup = (position) => {
-        const { latitude, longitude } = position.coords;
-        fetch(
-          `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f771ed1eb4474843aa7ddf98d865dc08`
-        )
-          .then((response) => response.json())
-          .then(console.log);
-      };
-      const location = navigator.geolocation.getCurrentPosition(
-        SuccessfullLookup,
-        console.log
-      );
-      console.log(location.result[0]);
-    }
 
     //getting all input values
     const names = event.target.elements.names.value;
@@ -51,13 +52,14 @@ function sendQeuries() {
     } else {
       document.querySelector("#detailError").style.display = "none";
     }
-
+    console.log(exaclyLocation);
     const query = {
       id: uuidv4(),
       names,
       subject,
       email,
       details,
+      exaclyLocation,
     };
     let queryList =
       JSON.parse(localStorage.getItem("queries")) === null

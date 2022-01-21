@@ -6,7 +6,7 @@ queryList.forEach((query) => {
   articleCard.setAttribute("class", "container grid");
   const blogCard = document.createElement("div");
   blogCard.setAttribute("class", "blog-card");
-  blogCard.textContent = query.names;
+  blogCard.textContent = `Names: ${query.names}`;
   const link = document.createElement("a");
   link.setAttribute("class", "link");
   link.textContent = query.email;
@@ -16,11 +16,12 @@ queryList.forEach((query) => {
   const date = document.createElement("i");
   date.textContent = moment(query.timestamp).fromNow();
   const h4 = document.createElement("h4");
-  h4.textContent = query.subject;
+  h4.textContent = `Subject: ${query.subject}`;
   const content = document.createElement("div");
   content.setAttribute("class", "some-content");
   const par = document.createElement("p");
   const readymore = document.createElement("p");
+  readymore.textContent = query.exaclyLocation;
   par.textContent = query.details;
   par.appendChild(readymore);
   info.appendChild(img);
