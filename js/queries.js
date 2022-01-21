@@ -52,7 +52,6 @@ function sendQeuries() {
     } else {
       document.querySelector("#detailError").style.display = "none";
     }
-    console.log(exaclyLocation);
     const query = {
       id: uuidv4(),
       names,
