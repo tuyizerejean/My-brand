@@ -19,16 +19,17 @@
   align-items: center;
   flex-direction: column;
   width: 50%;
-  margin:10% auto;
+  margin: 10% auto;
   border: 1px solid black;
 
   border-radius: 5px;
 }
-.sign-in-form{
-  width:80%;
-  margin:0 auto;
+.sign-in-form {
+  width: 80%;
+  margin: 0 auto;
 }
-.signin-form form input, #login-button {
+.signin-form form input,
+#login-button {
   margin: 10px 0px;
   height: 40px;
   width: 100%;
@@ -72,23 +73,24 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    margin:100px auto;
+    margin: 100px auto;
     border: 1px solid black;
     width: 90%;
     border-radius: 5px;
   }
- 
-/* MOBILE VIEW */
-@media screen and (max-width: 500px) {
-  .signin-form form input {
-    margin: 10px 0;
-    height: 50px;
-    width: 100%;
-  }
-  .signin-form,
-  .buttons-part {
-    height: 300px;
-    padding: 0px 0px;
-    color: var(--color-white);
+
+  /* MOBILE VIEW */
+  @media screen and (max-width: 500px) {
+    .signin-form form input {
+      margin: 10px 0;
+      height: 50px;
+      width: 100%;
+    }
+    .signin-form,
+    .buttons-part {
+      height: 300px;
+      padding: 0px 0px;
+      color: var(--color-white);
+    }
   }
 }

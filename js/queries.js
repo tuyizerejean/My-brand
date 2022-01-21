@@ -1,8 +1,28 @@
-localStorage.setItem("queries", JSON.stringify([])); //initialising the local storage
+// localStorage.setItem("queries", JSON.stringify([])); //initialising the local storage
+if (navigator.geolocation) {
+  const SuccessfullLookup = (position) => {
+    const { latitude, longitude } = position.coords;
+    console.log(latitude);
+    console.log(longitude);
+    let apiLocation = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f771ed1eb4474843aa7ddf98d865dc08`;
+    console.log(apiLocation);
+    fetch(apiLocation)
+      .then((response) => response.json())
+      .then((data) => {
+        let resultsList = data.results;
+        // console.log("Exactly location is:", resultsList[0].formatted);
+        exaclyLocation = resultsList[0].formatted;
+        // console.log(exaclyLocation);
+      });
+  };
+  navigator.geolocation.getCurrentPosition(SuccessfullLookup);
+}
 function sendQeuries() {
   const queryForm = document.querySelector("#queryForm");
   queryForm.addEventListener("submit", function (event) {
     event.preventDefault();
+    //getting the user location
+
     //getting all input values
     const names = event.target.elements.names.value;
     const subject = event.target.elements.subject.value;
@@ -38,11 +58,19 @@ function sendQeuries() {
       subject,
       email,
       details,
+      exaclyLocation,
     };
-    let queryList = localStorage.getItem("queries");
-    queryList = JSON.parse(queryList);
+    let queryList =
+      JSON.parse(localStorage.getItem("queries")) === null
+        ? []
+        : JSON.parse(localStorage.getItem("queries"));
     queryList.push(query);
     localStorage.setItem("queries", JSON.stringify(queryList));
+    window.alert("Successfully Added");
+    event.target.elements.names.value = "";
+    event.target.elements.subject.value = "";
+    event.target.elements.email.value = "";
+    event.target.elements.details.value = "";
   });
 }
 const validateEmail = (email) => {
