@@ -51,7 +51,7 @@ function writeData(operation, id = null) {
           if (article.id === id) {
             article.title = event.target.elements.title.value;
             article.article = event.target.elements.article.value;
-            // article.image = event.target.elements.image.value;
+            article.image = image;
           }
         });
         localStorage.setItem("Blog", JSON.stringify(articleList));
@@ -76,5 +76,6 @@ if (id.length === 0) {
   const content = document.querySelector("#article");
   content.textContent = articleTobeUpdated[0].article;
   formButton.innerHTML = "Update";
+  image = articleTobeUpdated[0].image;
   writeData("update", id);
 }
