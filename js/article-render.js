@@ -1,9 +1,7 @@
-// function renderArticle() {
-let bloglist =
-  localStorage.getItem("Blog") === null
-    ? []
-    : JSON.parse(localStorage.getItem("Blog"));
-bloglist.forEach((article) => {
+fetch('http://localhost:3000/api/v1/aritcles')
+.then((res)=>res.json())
+.then((data)=>{
+data.data.forEach(function(article) {
   const blog = document.querySelector(".blogs");
   const articleCard = document.createElement("div");
   articleCard.setAttribute("class", "container grid");
@@ -11,7 +9,7 @@ bloglist.forEach((article) => {
   blogCard.setAttribute("class", "blog-card");
   const link = document.createElement("a");
   link.setAttribute("class", "link");
-  link.setAttribute("href", `article.html#${article.id}`);
+  link.setAttribute("href", `article.html#${article._id}`);
   const info = document.createElement("div");
   info.setAttribute("class", "Blog-info");
   const img = document.createElement("img");
@@ -26,9 +24,9 @@ bloglist.forEach((article) => {
   const par = document.createElement("p");
   const readymore = document.createElement("button");
   readymore.textContent = "Read More";
-  readymore.setAttribute("href", `article.html#${article.id}`);
+  readymore.setAttribute("href", `article.html#${article._id}`);
   readymore.setAttribute("class", "read");
-  par.textContent = article.article.slice(0, 500) + "......";
+  par.textContent = article.content.slice(0, 500) + "......";
   par.appendChild(readymore);
   info.appendChild(img);
   info.appendChild(date);
@@ -40,9 +38,6 @@ bloglist.forEach((article) => {
   articleCard.appendChild(blogCard);
   blog.appendChild(articleCard);
 });
-
-// }
-// renderArticle();
-
-// }
-// renderArticle();
+  
+});
+  

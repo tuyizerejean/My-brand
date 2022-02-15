@@ -1,10 +1,11 @@
 const id = location.hash.split("").slice(1, location.hash.length).join("");
-let bloglist = localStorage.getItem("Blog");
-bloglist = JSON.parse(bloglist);
-const data = bloglist.filter((element) => {
-  return element.id === id;
-});
-data.forEach((article) => {
+fetch('http://localhost:3000/api/v1/aritcles')
+.then((res)=>res.json())
+.then((data)=>{
+  const selectData=data.data.filter((article) => {
+   return article._id===id;
+  });
+  selectData.forEach((article) => {
   const blog = document.querySelector("#ViewArticle");
   const articleCard = document.createElement("div");
   articleCard.setAttribute("class", "article");
@@ -26,7 +27,7 @@ data.forEach((article) => {
   const par = document.createElement("p");
   const readymore = document.createElement("p");
   readymore.setAttribute("class", "read");
-  par.textContent = article.article;
+  par.textContent = article.content;
   par.appendChild(readymore);
   info.appendChild(img);
   info.appendChild(date);
@@ -37,7 +38,6 @@ data.forEach((article) => {
   blogCard.appendChild(content);
   articleCard.appendChild(blogCard);
   blog.appendChild(articleCard);
-  console.log(article.id);
 });
 const commentForm = document.querySelector("#commentForm");
 commentForm.addEventListener("submit", function (event) {
@@ -100,4 +100,5 @@ dataRender.forEach((commented) => {
   commentHolder.appendChild(addCommentName);
   commentHolder.appendChild(date);
   addCommentName.appendChild(commentField);
+});
 });

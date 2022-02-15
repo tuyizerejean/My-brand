@@ -27,19 +27,31 @@ function writeData(operation, id = null) {
     }
     switch (operation) {
       case "create":
-        const createArticle = {
-          id: uuidv4(),
-          title,
-          image: image,
-          article,
-          timestamp: Date.now(),
-        };
-        let bloglist =
-          JSON.parse(localStorage.getItem("Blog")) === null
-            ? []
-            : JSON.parse(localStorage.getItem("Blog"));
-        bloglist.push(createArticle);
-        localStorage.setItem("Blog", JSON.stringify(bloglist));
+        // const createArticle = {
+        //   id: uuidv4(),
+        //   title,
+        //   image: image,
+        //   article,
+        //   timestamp: Date.now(),
+        // };
+        // let bloglist =
+        //   JSON.parse(localStorage.getItem("Blog")) === null
+        //     ? []
+        //     : JSON.parse(localStorage.getItem("Blog"));
+        // bloglist.push(createArticle);
+        // localStorage.setItem("Blog", JSON.stringify(bloglist));
+        fetch('http://localhost:3000/api/v1/aritcles/'
+        ,{
+          method:'POST',
+          headers:{
+            'Accept':'application/JSON,text/plain,*/*,',
+            'Content-type':'application/json'
+          },
+          body:JSON.stringify({id: uuidv4(),title:title,article:content,image:image,timestamp:Date.now(),})
+      }
+        )
+        .then((res)=>res.json())
+        .then((data)=>console.log(data))
         window.alert("The article is Created successfully");
         location.assign(`/pages/Admin_viewArticle.html`);
         event.target.elements.title.value = "";
@@ -48,9 +60,9 @@ function writeData(operation, id = null) {
       case "update":
         const articleList = JSON.parse(localStorage.getItem("Blog"));
         articleList.forEach((article) => {
-          if (article.id === id) {
+          if (article._id === id) {
             article.title = event.target.elements.title.value;
-            article.article = event.target.elements.article.value;
+            article.content = event.target.elements.content.value;
             article.image = image;
           }
         });

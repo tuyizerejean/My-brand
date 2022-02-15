@@ -1,7 +1,11 @@
 function renderArticle() {
-  let bloglist = localStorage.getItem("Blog");
-  bloglist = JSON.parse(bloglist);
-  bloglist.forEach((article) => {
+  // let bloglist = localStorage.getItem("Blog");
+  // bloglist = JSON.parse(bloglist);
+  // bloglist.forEach((article) 
+  fetch('http://localhost:3000/api/v1/aritcles')
+.then((res)=>res.json())
+.then((data)=>{
+data.data.forEach(function(article) {
     const blog = document.querySelector(".blogs");
     const articleCard = document.createElement("div");
     articleCard.setAttribute("class", "container grid");
@@ -27,15 +31,15 @@ function renderArticle() {
     const par = document.createElement("p");
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("class", " btn");
-    deleteButton.setAttribute("value", article.id);
+    deleteButton.setAttribute("value", article._id);
     deleteButton.setAttribute("id", "deleteButton");
     deleteButton.textContent = "Delete";
     const update = document.createElement("button");
     update.setAttribute("class", " btn");
-    update.setAttribute("value", article.id);
+    update.setAttribute("value", article._id);
     update.setAttribute("id", "update");
     update.textContent = "Update";
-    par.textContent = article.article;
+    par.textContent = article.content;
     info.appendChild(img);
     info.appendChild(date);
     info.appendChild(h4);
@@ -72,8 +76,8 @@ function renderArticle() {
       // const ArticleFilter = articles.filter((article) => {
       //   return article.id == id;
       // });
-      location.assign(`create-article.html#${article.id}`);
+      location.assign(`create-article.html#${article._id}`);
     });
   });
-}
+})};
 renderArticle();
