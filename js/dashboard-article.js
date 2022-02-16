@@ -2,7 +2,7 @@ function renderArticle() {
   // let bloglist = localStorage.getItem("Blog");
   // bloglist = JSON.parse(bloglist);
   // bloglist.forEach((article) 
-  fetch('http://localhost:3000/api/v1/aritcles')
+  fetch('https://my-brand-jean.herokuapp.com/api/v1/aritcles')
 .then((res)=>res.json())
 .then((data)=>{
 data.data.forEach(function(article) {
@@ -16,14 +16,14 @@ data.data.forEach(function(article) {
     someContent.textContent = "Delete";
     const link = document.createElement("author");
     link.setAttribute("class", "link");
-    link.setAttribute("href", ``);
+    link.setAttribute("href", `article.html#${article._id}`);
     const info = document.createElement("div");
     info.setAttribute("class", "Blog-info");
     const img = document.createElement("img");
     img.setAttribute("ALIGN", "left");
     img.setAttribute("src", article.image);
     const date = document.createElement("i");
-    date.textContent = moment(article.timestamp).fromNow();
+    date.textContent = moment(article.created_at);
     const h4 = document.createElement("h4");
     h4.textContent = article.title;
     const content = document.createElement("div");
@@ -54,28 +54,37 @@ data.data.forEach(function(article) {
     content.appendChild(deleteButton);
     //deleting article
     deleteButton.addEventListener("click", function (event) {
+      event.preventDefault();
       const id = event.target.value;
-      const articles = JSON.parse(localStorage.getItem("Blog"));
-      const filteredArticles = articles.filter((article) => {
-        return article.id !== id;
-      });
+     const token=localStorage.getItem("accessToken")
+     console.log(token)
       if (
         window.confirm(`Are sure you want to delete article with id = ${id}`)
       ) {
-        localStorage.setItem("Blog", JSON.stringify(filteredArticles));
-        location.reload();
-      } else {
-        localStorage.setItem("Blog", JSON.stringify(articles));
-        location.reload();
+        fetch(`https://my-brand-jean.herokuapp.com/api/v1/aritcles/${id}`
+        ,{
+          method:'DELETE',
+          headers:{ 'Authorization': 'Bearer' + ' ' + token
+
+          },
       }
+        )
+        .then((res)=>res.json())
+        .then((data)=>{
+          if(data){
+            window.alert("The article is Deleted successfully");
+            location.reload();
+          }
+          else{
+            window.alert("Not deleted")
+          }
+        })
+      } 
     });
-    //Updating the article
     update.addEventListener("click", function (event) {
+      event.preventDefault();
       const id = event.target.value;
-      // const articles = JSON.parse(localStorage.getItem("Blog"));
-      // const ArticleFilter = articles.filter((article) => {
-      //   return article.id == id;
-      // });
+      // console.log(id)
       location.assign(`create-article.html#${article._id}`);
     });
   });

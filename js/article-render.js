@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/api/v1/aritcles')
+fetch('https://my-brand-jean.herokuapp.com/api/v1/aritcles')
 .then((res)=>res.json())
 .then((data)=>{
 data.data.forEach(function(article) {
@@ -16,7 +16,7 @@ data.data.forEach(function(article) {
   img.setAttribute("ALIGN", "left");
   img.setAttribute("src", article.image);
   const date = document.createElement("i");
-  date.textContent = moment(article.timestamp).fromNow();
+  date.textContent = moment(article.created_ats);
   const h4 = document.createElement("h4");
   h4.textContent = article.title;
   const content = document.createElement("div");
@@ -38,6 +38,5 @@ data.data.forEach(function(article) {
   articleCard.appendChild(blogCard);
   blog.appendChild(articleCard);
 });
-  
 });
   

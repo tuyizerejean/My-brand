@@ -1,5 +1,5 @@
-let islogin = localStorage.getItem("isLogin");
-islogin = JSON.parse(islogin);
-if (islogin === false) {
+let islogin = localStorage.getItem("accessToken");
+// islogin = JSON.parse(islogin);
+if (!islogin) {
   location.assign("/pages/signin.html");
 }
