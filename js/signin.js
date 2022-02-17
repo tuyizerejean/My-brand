@@ -25,7 +25,7 @@ function signInRequest() {
     }
     // let user = localStorage.getItem("signIn");
     // user = JSON.parse(user);
-    fetch('http://localhost:3000/api/v1/users/login/'
+    fetch('https://my-brand-jean.herokuapp.com/api/v1/users/login'
     ,{
       method:'POST',
       headers:{
