@@ -84,7 +84,7 @@ commentForm.addEventListener("submit", function (event) {
       .then((res)=>res.json())
   .then((data)=>{
     console.log(data)
-    window.alert("Successfully Added");
+    document.querySelector("#sentMessage").style.display = "block";
     event.target.elements.addComment.value = "";
     event.target.elements.comment.value = "";
     location.reload();

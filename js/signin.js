@@ -45,7 +45,7 @@ function signInRequest() {
       location.assign("/pages/dashboard.html");
       }
       else{
-        window.alert("Invalid credentials");
+        document.querySelector("#apiError").style.display = "block";
       }
     
       // location.assign("/pages/dashboard.html");
