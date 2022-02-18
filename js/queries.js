@@ -18,14 +18,15 @@ if (navigator.geolocation) {
     };
     navigator.geolocation.getCurrentPosition(SuccessfullLookup);
   }
-
-function sendQeuries() {
+const spin=document.querySelector(".lds-dual-ring")
+console.log(spin)
+ async function sendQeuries() {
   const queryForm = document.querySelector("#queryForm");
   queryForm.addEventListener("submit", function (event) {
     event.preventDefault();
     //getting the user location
-
     //getting all input values
+    spin.style.display="inline-block";
     const names = event.target.elements.names.value;
     const subject = event.target.elements.subject.value;
     const email = event.target.elements.email.value;
@@ -75,7 +76,7 @@ function sendQeuries() {
   //  formData.append("details",message);
   //   formData.append("exaclyLocation",location);
   // console.log(exaclyLocation)
-    fetch('https://my-brand-jean.herokuapp.com/api/v1/queries'
+   fetch('https://my-brand-jean.herokuapp.com/api/v1/queries'
     ,{
       method:'POST',
       headers:{
@@ -87,7 +88,9 @@ function sendQeuries() {
         .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
-      document.querySelector("#successSend").style.display = "block";
+      // document.querySelector("#successSend").style.display = "block";
+      spin.style.display="none";
+swal(" message Sent successfully", "Now it is sent click ok to continue!!");
     })
     event.target.elements.names.value = "";
     event.target.elements.subject.value = "";

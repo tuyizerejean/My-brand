@@ -6,11 +6,13 @@ document.querySelector("#myFileInput").addEventListener("change", function () {
   });
   reader.readAsDataURL(this.files[0]);
 }); //initialising the local storage
+const spin=document.querySelector(".lds-dual-ring")
 const token= localStorage.getItem("accessToken")
-function writeData(operation, id = null) {
+async function writeData(operation, id = null) {
   const createBlog = document.querySelector("#createBlog");
   createBlog.addEventListener("submit", function (event) {
     event.preventDefault();
+    spin.style.display="inline-block";
     //getting all input values
     // const title = event.target.elements.title.value;
     // const content = event.target.elements.content.value;
@@ -62,9 +64,11 @@ function writeData(operation, id = null) {
         .then((res)=>res.json())
         .then((data)=>{
           console.log(data)
-          // window.alert("The article is Created successfully");
-          // location.assign(`/pages/Admin_viewArticle.html`);
-        })
+          spin.style.display="none";
+          // swal(" message Sent successfully", "Now it is sent click ok to continue!!");
+          window.alert("Successfully posted")
+                 location.assign(`/pages/Admin_viewArticle.html`);
+              })
         event.target.elements.title.value = "";
         event.target.elements.content.value = "";
         break;
@@ -91,6 +95,7 @@ function writeData(operation, id = null) {
           .then((data)=>{
             console.log(data.data)
         // localStorage.setItem("Blog", JSON.stringify(articleList));
+        spin.style.display="none";
           window.alert("The article is updated successfully");
           location.assign(`/pages/article.html#${id}`);
           })
@@ -113,6 +118,7 @@ function writeData(operation, id = null) {
           .then((data)=>{
             console.log(data.data)
         // localStorage.setItem("Blog", JSON.stringify(articleList));
+        spin.style.display="none";
           window.alert("The article is updated successfully");
           location.assign(`/pages/article.html#${id}`);
           })

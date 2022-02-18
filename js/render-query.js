@@ -1,9 +1,12 @@
 // let queryList = localStorage.getItem("queries");
 // queryList = JSON.parse(queryList);
 // queryList
+const spin=document.querySelector(".lds-dual-ring")
 const token=localStorage.getItem("accessToken")
-console.log(token)
-fetch('https://my-brand-jean.herokuapp.com/api/v1/queries',
+async function queries(){
+  spin.style.display="inline-block";
+  console.log(token)
+await fetch('https://my-brand-jean.herokuapp.com/api/v1/queries',
 {
 headers:{
   'Authorization': 'Bearer' + ' ' + token 
@@ -48,3 +51,8 @@ headers:{
   blog.appendChild(articleCard);
 });
 });
+spin.style.display="none";
+swal("Sent successfully", "Now your query is sent");
+}
+queries();
+
