@@ -87,10 +87,7 @@ function sendQeuries() {
         .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
-      // document.querySelector("#successSend").style.display = "block";
-      swal("Success!","Query sent!!!", "success", {
-        button: false
-   });
+      document.querySelector("#successSend").style.display = "block";
     })
     event.target.elements.names.value = "";
     event.target.elements.subject.value = "";
