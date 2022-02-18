@@ -1,5 +1,6 @@
 // localStorage.setItem("queries", JSON.stringify([])); //initialising the local storage
-  if (navigator.geolocation) {
+let exaclyLocation;
+if (navigator.geolocation) {
     const SuccessfullLookup = (position) => {
       const { latitude, longitude } = position.coords;
       console.log(latitude);
@@ -86,7 +87,10 @@ function sendQeuries() {
         .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
-      document.querySelector("#successSend").style.display = "block";
+      // document.querySelector("#successSend").style.display = "block";
+      swal("Success!","Query sent!!!", "success", {
+        button: false
+   });
     })
     event.target.elements.names.value = "";
     event.target.elements.subject.value = "";
