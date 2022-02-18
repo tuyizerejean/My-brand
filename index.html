@@ -6,6 +6,7 @@
     <title>My Brand</title>
     <link rel="stylesheet" href="css/utilities.css" />
     <link rel="stylesheet" href="css/sytles.css" />
+    <link rel="stylesheet" href="css/qeueriesSpinner.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -26,6 +27,7 @@
             <li><a href="#projects">Portfolio</a></li>
             <li><a href="pages/blog.html">Blog</a></li>
             <li><a href="#contactme">Contact me</a></li>
+            <li><a href="/pages/signin.html">Login</a></li>
           </ul>
         </nav>
       </div>
@@ -148,8 +150,9 @@
               Street: RK 15 Ave
             </p>
           </div>
-
           <form class="grid-1" id="queryForm">
+            <div class="lds-dual-ring"></div>
+            <!-- <span id="successSend" style="display: none;color:orange;">Message sent succcessfully </span> -->
             <div class="form-control">
               <input type="text"  name="names" placeholder="Names: Jean de" />
               <span id="nameError" style="display: none; color:orange;">Name should not be empty</span>
@@ -194,5 +197,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/queries.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

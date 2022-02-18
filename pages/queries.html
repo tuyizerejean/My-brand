@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/utilities.css" />
     <link rel="stylesheet" href="../css/sytles.css" />
     <link rel="stylesheet" href="../css/blog.css" />
+    <link rel="stylesheet" href="../css/qeueriesSpinner.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -34,9 +35,11 @@
       <div class="container grid">
         <div class="blog-card">
           <div class="Blog-info">
-            <p style="font-size: 40px;text-align: center;">Read Messages</p>       
+            <p style="font-size: 40px;text-align: center;">Read Messages</p>   
+            <div class="lds-dual-ring"></div>
         </div>
       </div>
+  
     </section>
     <footer>
       <div class="container grid-1">
@@ -59,7 +62,9 @@
       integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
       crossorigin="anonymous"
     ></script>
+    <script src="/js/protectPages.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/render-query.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

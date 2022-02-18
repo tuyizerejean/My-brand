@@ -1,10 +1,11 @@
 const id = location.hash.split("").slice(1, location.hash.length).join("");
-let bloglist = localStorage.getItem("Blog");
-bloglist = JSON.parse(bloglist);
-const data = bloglist.filter((element) => {
-  return element.id === id;
-});
-data.forEach((article) => {
+fetch('https://my-brand-jean.herokuapp.com/api/v1/aritcles')
+.then((res)=>res.json())
+.then((data)=>{
+  const selectData=data.data.filter((article) => {
+   return article._id===id;
+  });
+  selectData.forEach((article) => {
   const blog = document.querySelector("#ViewArticle");
   const articleCard = document.createElement("div");
   articleCard.setAttribute("class", "article");
@@ -18,7 +19,7 @@ data.forEach((article) => {
   img.setAttribute("ALIGN", "left");
   img.setAttribute("src", article.image);
   const date = document.createElement("i");
-  date.textContent = moment(article.timestamp).fromNow();
+  date.textContent = moment(article.created_at);
   const h4 = document.createElement("h4");
   h4.textContent = article.title;
   const content = document.createElement("div");
@@ -26,7 +27,7 @@ data.forEach((article) => {
   const par = document.createElement("p");
   const readymore = document.createElement("p");
   readymore.setAttribute("class", "read");
-  par.textContent = article.article;
+  par.textContent = article.content;
   par.appendChild(readymore);
   info.appendChild(img);
   info.appendChild(date);
@@ -37,7 +38,6 @@ data.forEach((article) => {
   blogCard.appendChild(content);
   articleCard.appendChild(blogCard);
   blog.appendChild(articleCard);
-  console.log(article.id);
 });
 const commentForm = document.querySelector("#commentForm");
 commentForm.addEventListener("submit", function (event) {
@@ -57,47 +57,70 @@ commentForm.addEventListener("submit", function (event) {
   } else {
     document.querySelector("#commentError").style.display = "none";
   }
-  const commented = {
-    commentId: uuidv4(),
-    addComment,
-    comment,
-    timestamp: Date.now(),
-    articleId: id,
-  };
-  let commentList =
-    JSON.parse(localStorage.getItem("Comments")) === null
-      ? []
-      : JSON.parse(localStorage.getItem("Comments"));
+  // const commented = {
+  //   commentId: uuidv4(),
+  //   addComment,
+  //   comment,
+  //   timestamp: Date.now(),
+  //   articleId: id,
+  // };
+  // let commentList =
+  //   JSON.parse(localStorage.getItem("Comments")) === null
+  //     ? []
+  //     : JSON.parse(localStorage.getItem("Comments"));
 
-  commentList.push(commented);
+  // commentList.push(commented);
 
-  localStorage.setItem("Comments", JSON.stringify(commentList));
-  event.target.elements.addComment.value = "";
-  event.target.elements.comment.value = "";
-  location.reload();
-  window.alert("successfull Submitted");
+  // localStorage.setItem("Comments", JSON.stringify(commentList));
+  fetch(`https://my-brand-jean.herokuapp.com/api/v1/comments/${id}`
+  ,{
+    method:'POST',
+    headers:{
+      'Accept':'application/JSON,text/plain,*/*,',
+      'Content-type':'application/json'
+    },
+    body:JSON.stringify({name:addComment,comment:comment})
+   })
+      .then((res)=>res.json())
+  .then((data)=>{
+    console.log(data)
+    // document.querySelector("#sentMessage").style.display = "block";
+    event.target.elements.addComment.value = "";
+    event.target.elements.comment.value = "";
+    location.reload();
+  })
+  // window.alert("successfull Submitted");
 });
 // function renderArticle() {
-let commentList =
-  localStorage.getItem("Comments") === null
-    ? []
-    : JSON.parse(localStorage.getItem("Comments"));
-const dataRender = commentList.filter((item) => {
-  return item.articleId === id;
-});
-dataRender.forEach((commented) => {
+// let commentList =
+//   localStorage.getItem("Comments") === null
+//     ? []
+//     : JSON.parse(localStorage.getItem("Comments"));
+console.log(id)
+fetch(`https://my-brand-jean.herokuapp.com/api/v1/comments/${id}`)
+.then((res)=>res.json())
+.then((data)=>{
+console.log(data)
+// const dataRender = data.comments.filter((item) => {
+//   return item.id === id;
+// });
+console.log(data.comments);
+data.comments.forEach((commented) => {
   const commentCard = document.querySelector("#commentView");
   const commentHolder = document.createElement("div");
   commentHolder.setAttribute("class", "comment");
   const addCommentName = document.createElement("div");
   addCommentName.setAttribute("class", "some-content");
-  addCommentName.textContent = commented.addComment;
+  addCommentName.textContent = commented.name;
   const commentField = document.createElement("p");
   commentField.textContent = commented.comment;
   const date = document.createElement("i");
-  date.textContent = moment(commented.timestamp).fromNow();
+  date.textContent = moment(commented.created_at);
   commentCard.appendChild(commentHolder);
   commentHolder.appendChild(addCommentName);
   commentHolder.appendChild(date);
   addCommentName.appendChild(commentField);
 });
+});
+})
+

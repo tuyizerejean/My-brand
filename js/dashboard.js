@@ -1,4 +1,4 @@
 function logOut() {
-  localStorage.setItem("isLogin", JSON.stringify(false));
+  localStorage.removeItem("accessToken");
   location.assign("/pages/signin.html");
 }
