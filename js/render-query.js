@@ -52,7 +52,7 @@ headers:{
 });
 });
 spin.style.display="none";
-swal("Sent successfully", "Now your query is sent");
+// swal("Sent successfully", "Now your query is sent");
 }
 queries();
 
