@@ -61,8 +61,9 @@ function writeData(operation, id = null) {
         )
         .then((res)=>res.json())
         .then((data)=>{
-          window.alert("The article is Created successfully");
-          location.assign(`/pages/Admin_viewArticle.html`);
+          console.log(data)
+          // window.alert("The article is Created successfully");
+          // location.assign(`/pages/Admin_viewArticle.html`);
         })
         event.target.elements.title.value = "";
         event.target.elements.content.value = "";
@@ -72,26 +73,50 @@ function writeData(operation, id = null) {
         article.content = event.target.elements.content.value;
         article.image = image;
         console.log(image)
-        const dataForm = new FormData();
-        dataForm.append('image',image);
-        dataForm.append("title",title);
-        dataForm.append("content",content);
-        fetch(`https://my-brand-jean.herokuapp.com/api/v1/aritcles/${id}`
-        ,{
-          method:'PUT',
-          headers:{
-            'Authorization': 'Bearer' + ' ' + token         
-           },
-          body:dataForm
-      }
-        )
-        .then((res)=>res.json())
-        .then((data)=>{
-          console.log(data.data)
-      // localStorage.setItem("Blog", JSON.stringify(articleList));
-        window.alert("The article is updated successfully");
-        location.assign(`/pages/article.html#${id}`);
-        })
+        if(!image){
+          const dataForm = new FormData();
+          // dataForm.append('image',image);
+          dataForm.append("title",title);
+          dataForm.append("content",content);
+          fetch(`https://my-brand-jean.herokuapp.com/api/v1/aritcles/${id}`
+          ,{
+            method:'PUT',
+            headers:{
+              'Authorization': 'Bearer' + ' ' + token         
+             },
+            body:dataForm
+        }
+          )
+          .then((res)=>res.json())
+          .then((data)=>{
+            console.log(data.data)
+        // localStorage.setItem("Blog", JSON.stringify(articleList));
+          window.alert("The article is updated successfully");
+          location.assign(`/pages/article.html#${id}`);
+          })
+        }
+        else{
+          const dataForm = new FormData();
+          dataForm.append('image',image);
+          dataForm.append("title",title);
+          dataForm.append("content",content);
+          fetch(`https://my-brand-jean.herokuapp.com/api/v1/aritcles/${id}`
+          ,{
+            method:'PUT',
+            headers:{
+              'Authorization': 'Bearer' + ' ' + token         
+             },
+            body:dataForm
+        }
+          )
+          .then((res)=>res.json())
+          .then((data)=>{
+            console.log(data.data)
+        // localStorage.setItem("Blog", JSON.stringify(articleList));
+          window.alert("The article is updated successfully");
+          location.assign(`/pages/article.html#${id}`);
+          })
+        }
         break;
       default:
         break;
